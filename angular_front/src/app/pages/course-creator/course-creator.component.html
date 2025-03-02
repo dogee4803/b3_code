@@ -1,0 +1,9 @@
+<div class="course-creator">
+  <h2 class="course-creator__title">Создать новый курс</h2>
+  <input
+    [(ngModel)]="newCourse.title"
+    placeholder="Название курса"
+    class="course-creator__input"
+  />
+  <button (click)="addCourse()" class="course-creator__button">Добавить курс</button>
+</div>

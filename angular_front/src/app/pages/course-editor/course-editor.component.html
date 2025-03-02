@@ -1,0 +1,128 @@
+<div class="course-editor">
+  <p-breadcrumb 
+    [model]="breadcrumbItems" 
+    [home]="homeBreadcrumb"
+    class="mb-4"
+  ></p-breadcrumb>
+
+  <h2>Редактирование курса</h2>
+  
+  <div class="course-details d-flex align-items-center">
+    <ng-container *ngIf="!isTitleEditMode">
+      <span class="course-title">{{ course.title }}</span>
+      <button 
+        (click)="editCourseTitle()"
+        class="btn btn-outline-primary ml-2"
+      >
+        <i class="pi pi-pencil"></i>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="isTitleEditMode">
+      <form #titleForm="ngForm">
+        <input 
+          name="courseTitle"
+          [(ngModel)]="course.title" 
+          placeholder="Название курса" 
+          class="form-control mr-2"
+          required
+          minlength="3"
+          #titleInput="ngModel"
+        />
+        <button 
+          *ngIf="course.title && course.title.trim() !== '' && course.title !== originalTitle"
+          (click)="updateCourseTitle()"
+          class="btn btn-success ml-2"
+          [disabled]="titleForm.invalid"
+        >
+          Подтвердить
+        </button>
+        <button 
+          (click)="cancelTitleEdit()"
+          class="btn btn-outline-secondary ml-2"
+        >
+          Отмена
+        </button>
+      </form>
+    </ng-container>
+  </div>
+
+  <div class="modules-section">
+    <h3>Модули курса</h3>
+    
+    <button 
+      (click)="addModule()" 
+      class="btn btn-primary mb-3"
+    >
+      Добавить модуль
+    </button>
+
+    <div 
+      *ngFor="let module of course.modules; let moduleIndex = index" 
+      class="module-card"
+    >
+      <div class="module-header">
+        <input 
+          [(ngModel)]="module.title" 
+          placeholder="Название модуля" 
+          class="form-control"
+        />
+        <button 
+          (click)="removeModule(moduleIndex)" 
+          class="btn btn-danger"
+        >
+          Удалить
+        </button>
+      </div>
+
+      <div class="module-details">
+        <div class="form-group">
+          <label>Длительность (дней):</label>
+          <input 
+            type="number" 
+            [(ngModel)]="module.number_of_days" 
+            class="form-control"
+          />
+        </div>
+
+        <div class="blocks-section">
+          <h4>Блоки модуля</h4>
+          
+          <button 
+            (click)="addBlock(module)" 
+            class="btn btn-secondary mb-3"
+          >
+            Добавить блок
+          </button>
+
+          <div 
+            *ngFor="let block of module.blocks; let blockIndex = index" 
+            class="block-card"
+          >
+            <textarea 
+              [(ngModel)]="block.text_information" 
+              placeholder="Текст блока" 
+              class="form-control mb-2"
+            ></textarea>
+
+            <button 
+              (click)="removeBlock(module, blockIndex)" 
+              class="btn btn-danger mt-2"
+            >
+              Удалить блок
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions mt-4">
+    <button 
+      (click)="saveCourse()" 
+      class="btn btn-success"
+    >
+      Сохранить курс
+    </button>
+  </div>
+</div>

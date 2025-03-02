@@ -1,0 +1,19 @@
+@import "primeicons/primeicons.css";
+
+/* Светлая тема (по умолчанию) */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Темная тема */
+.my-app-dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}

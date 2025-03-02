@@ -1,0 +1,14 @@
+<div class="course-list">
+  <p-card *ngFor="let course of courses" class="course-card">
+    <div class="course-content">
+      <h2>{{ course.id_course.title }}</h2>
+      <p class="duration">Прогресс: {{ course.progress * 100 }}%</p>
+      <p-button 
+        label="Войти в курс" 
+        icon="pi pi-arrow-right" 
+        styleClass="p-button-primary"
+        [routerLink]="['/course', course.id_course.id]"
+      ></p-button>
+    </div>
+  </p-card>
+</div>

@@ -1,0 +1,118 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+}
+
+.course-editor {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.course-details,
+.modules-section {
+  margin-bottom: 20px;
+}
+
+.course-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.course-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.course-details button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.course-details form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.course-details .button-group {
+  display: flex;
+  align-items: center;
+}
+
+.course-details .button-group button {
+  margin-left: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.module-card,
+.block-card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.module-header,
+.blocks-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-success {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+}

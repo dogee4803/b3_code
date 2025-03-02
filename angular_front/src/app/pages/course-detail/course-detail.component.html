@@ -1,0 +1,16 @@
+<div *ngIf="course" class="course-detail">
+    <p-card>
+      <ng-template pTemplate="header">
+        <h1>{{ course.id_course.title }}</h1>
+      </ng-template>
+      <p><strong>Дата подключения:</strong> {{ course.connect_date }}</p>
+      <p><strong>Прогресс:</strong> {{ course.progress * 100 }}%</p>
+      <ng-template pTemplate="footer">
+        <p-button label="Вернуться к списку курсов" routerLink="/" icon="pi pi-arrow-left"></p-button>
+      </ng-template>
+    </p-card>
+  </div>
+  
+  <div *ngIf="!course" class="loading">
+    <p>Загрузка данных о курсе...</p>
+  </div>

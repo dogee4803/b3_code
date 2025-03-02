@@ -1,0 +1,13 @@
+<div class="clients-container">
+  <h1>Список клиентов</h1>
+  <div *ngIf="clients.length > 0; else noClients">
+    <div class="client-card" *ngFor="let client of clients">
+      <h2>{{ client.surname }} {{ client.name }} {{ client.patronymic }}</h2>
+      <p><strong>Email:</strong> {{ client.email }}</p>
+      <p><strong>Роль:</strong> {{ client.is_admin ? 'Администратор' : 'Клиент' }}</p>
+    </div>
+  </div>
+  <ng-template #noClients>
+    <p>Клиенты не найдены.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,12 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="end">
+      <p-toggleSwitch
+        [(ngModel)]="isDarkTheme"
+        (onChange)="toggleTheme()"
+      >
+        <ng-template #handle let-checked="checked">
+          <i [ngClass]="['pi', checked ? 'pi-moon' : 'pi-sun']"></i>
+        </ng-template>
+      </p-toggleSwitch>
+    </ng-template>
+  </p-menubar>
